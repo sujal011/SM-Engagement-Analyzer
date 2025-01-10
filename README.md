@@ -1,50 +1,44 @@
-# React + TypeScript + Vite
+# Social Media Insights Workflow with LangFlow
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates a LangFlow-based workflow for generating meaningful insights about social media post performance. The workflow integrates Astra DB for data retrieval and GROQ AI for insightful analysis, providing actionable recommendations based on user-selected post types.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Overview
 
-## Expanding the ESLint configuration
+The workflow is designed to:
+1. Allow users to input a social media post type (e.g., Reels, Static Images).
+2. Fetch engagement data for the selected post type and overall averages from Astra DB.
+3. Analyze the data using GROQ AI with a pre-configured prompt to generate insights.
+4. Display actionable recommendations via a Chat Output.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+---
 
-- Configure the top-level `parserOptions` property like this:
+## Workflow Components
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+![msedge_4sIIXwN7YB](https://github.com/user-attachments/assets/26ed4f7f-a439-4bbc-9846-3014918dee5f)
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### 1. **Chat Input**
+   - Captures the user’s selected post type (e.g., "Reels").
+   - Acts as the starting point of the workflow.
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+### 2. **Custom Component**
+   - Fetches data from Astra DB based on the post type.
+   - Formats the retrieved data into a structured string for analysis.
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+### 3. **Astra DB Tool**
+   - Queries the database to retrieve engagement metrics.
+   - Contains mock data for demonstration purposes.
+
+### 4. **GROQ AI**
+   - Processes the data using a detailed system prompt.
+   - Generates actionable insights, comparisons, and recommendations.
+
+### 5. **Chat Output**
+   - Displays the final insights in a user-friendly format.
+
+---
+
+
+Link to backend Repo - [http://github.com/sujal011/SM_Eng_Analyzer-BE](https://github.com/sujal011/SM_Eng-Analyzer-BE)
+
