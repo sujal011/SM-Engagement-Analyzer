@@ -27,10 +27,8 @@ function App() {
   const analyzeData = async () => {
     setLoading(true)
     try {
-      const response = await axios.get(`${import.meta.env.VITE_API}/analyze`, {
-        params: {
-          ptype: postType
-        }
+      const response = await axios.post(`${import.meta.env.VITE_API}/`, {
+        post_type: postType
       });
       console.log(response);
       
@@ -46,7 +44,7 @@ function App() {
     <>
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
       <main className="flex-grow">
-        <div className="flex justify-center items-center h-16 bg-gray-800">
+        <div className="flex justify-center items-center h-16 bg-gray-800 py-20">
           <h1 className="text-3xl font-bold text-white">Social Media Engagement Analyzer</h1>
         </div>
       <div className="flex flex-col md:flex-row min-h-screen bg-gray-900 text-white">
